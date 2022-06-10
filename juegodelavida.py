@@ -1,10 +1,13 @@
 
 import copy, random, sys, time
 
+anchura = int(input("Dime anchura de la cuadricula"))
+altura = int(input("Dime altura de la cuadricula"))
 # Constantes
-ANCHO = 79   # Ancho de la cuadrícula
-ALTO = 20  # Alto de la cuadrícula
+ANCHO = anchura   # Ancho de la cuadrícula
+ALTO = altura  # Alto de la cuadrícula
 
+celula = input("Dime caracter para la célula")
 VIVO = 'O'  # Carácter para la celda viva
 MUERTO = ' '   # Carácter para la celda muerta
 
@@ -69,7 +72,7 @@ while True:  # bucle principal del programa
                                             or numVecinasVivas == 3):
                     # Cálulas vivas con 2 o 3 vecinas vivas permanecen vivas
                     siguientesCelulas[(x, y)] = VIVO
-            elif celulas[(x, y)] == MUERTO and numVecinasVivas == 3:
+            elif celulas[(x, y)] == MUERTO and numVecinasVivas >= 2:
                 # Células muertas con 3 vecinas vivas cobran vida
                 siguientesCelulas[(x, y)] = VIVO
             else:
